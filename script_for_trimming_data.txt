@@ -1,0 +1,7 @@
+for file in `ls -1 pair1/*1.fastq`
+do
+PAIR1=$file
+PAIR2=$(echo $file | sed -E "s/pair1\/(.*)\_forward_1/pair2\/\1\_reverse_2/g")
+#echo "$PAIR1, $PAIR2\n"
+perl /home/talwar/installed_applications/Trim_galore/trim_galore -q 30 -a AGATCGGAAGAGC --length 25 -o /home/talwar/RNAseq_analysis/data_post_trimming --paired $PAIR1 $PAIR2
+done

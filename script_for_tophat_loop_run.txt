@@ -1,0 +1,6 @@
+for file in `ls -1 *_trimmed.fastq`
+do
+PAIR=$file
+echo "$PAIR"
+tophat -p 10 -o /home/talwar/RNAseq_analysis/Mapping_Celegans_data/tophat_out_$PAIR -G ~/RNAseq_analysis/Genomes_Celegans/Caenorhabditis_elegans.WBcel235.76.gtf ~/RNAseq_analysis/Genomes_Celegans/Caenorhabditis_elegans/Ensembl/WBcel235/Sequence/Bowtie2Index/genome $PAIR
+done
